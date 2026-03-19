@@ -9,7 +9,6 @@ function initiativeHtmlMaker()
             <th></th>
             <th>Name</th>
             <th>HP</th>
-            <th>Resistances</th>
         </tr>
     </thead>
     <tbody>`;
@@ -24,7 +23,6 @@ function initiativeHtmlMaker()
         <button class="heal-button ${character.name}" >Heal</button></td>
         <td>${character.name}</td>
         <td>${character.hp}</td>
-        <td>${character.resistances}</td>
         <td><button class="delete-button ${character.name}" >Delete</button></td>
         </tr>`
     })
@@ -36,8 +34,7 @@ function submitHandler()
     const name = document.querySelector("#char-name").value;
     const hp = document.querySelector("#char-hp").value;
     const roll = document.querySelector("#dex-roll").value;
-    const resistances = document.querySelector("#resistances").value;
-    const character = {name, hp, roll, resistances};
+    const character = {name, hp, roll};
 
     if(name != ""){
         localStorage.setItem(name, JSON.stringify(character));
@@ -51,7 +48,6 @@ function clearInputs()
     document.querySelector("#char-name").value = "";
     document.querySelector("#char-hp").value = "";
     document.querySelector("#dex-roll").value = "";
-    document.querySelector("#resistances").value = "";
 
 }
 function deleteAll()
@@ -97,16 +93,8 @@ function hpHandler(event)
     if (!isDamage){damage *= -1;} // Inverts for healing
 
     const allItems = Object.entries(localStorage);
-    const damageType = document.querySelector("#damage-type").value;
     allItems.slice().reverse().forEach(([key, value]) => {
         const character = JSON.parse(value);
-        const resistance = character.resistances;
-        if (damageType == resistance && isDamage || 
-            ((damageType == "Piercing" || damageType == "Bludgeoning" || 
-                damageType == "Slashing") && resistance == "B-P-S")) // Halves for resistance
-        {
-            damage /= 2
-        }
 
         if(event.target.classList.contains(character.name))
         {
@@ -117,8 +105,28 @@ function hpHandler(event)
         }
     })
 }
-document.querySelector("#submit-button").addEventListener("click", submitHandler)
-document.querySelector("#reset-button").addEventListener("click", deleteAll)
-trackerBox.addEventListener("click", buttonHandler)
+document.querySelector("#submit-button").addEventListener("click", submitHandler);
+document.querySelector("#reset-button").addEventListener("click", deleteAll);
+trackerBox.addEventListener("click", buttonHandler);
 
 trackerBox.innerHTML = initiativeHtmlMaker();
+
+
+
+
+
+// Discord Bot
+
+async function loadMessages() {
+    const res = await fetch("http://localhost:3000/messages");
+    const data = await res.json();
+
+    const container = document.getElementById("chat");
+
+    console.log(data)
+    container.innerHTML = data.map(msg =>
+    `<p><strong>${msg.user}:</strong> ${msg.content}</p>`
+    ).join("");
+}
+
+setInterval(loadMessages, 2000);
