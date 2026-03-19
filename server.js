@@ -32,7 +32,9 @@ messages.push({
 });
 });
 
-client.login("YOUR_TOKEN_HERE");
+require("dotenv").config();
+
+client.login(process.env.DISCORD_TOKEN);
 
 // API endpoint for your website
 app.get("/messages", (req, res) => {
