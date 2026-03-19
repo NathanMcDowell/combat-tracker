@@ -1,0 +1,117 @@
+:root {
+    --primary-color: #36393A;
+    --secondary-color: #6EAD5F;
+    --accent-color: #550403;
+    --background-color: #E2DADB;
+}
+@import url('https://fonts.googleapis.com/css2?family=Aldrich&display=swap');
+
+body {
+    font-family: "Aldritch", monospace;
+    background-color: var(--background-color);
+    margin: 0;
+}
+main{
+    padding: 5px;
+}
+header {
+    border-bottom: 2px solid var(--primary-color);
+    display: flex;
+    margin-bottom: 20px;
+    background-color: var(--secondary-color);
+    padding: 5px;
+}
+header img{
+    width: 100px;
+    border: 2px  solid var(--primary-color);
+    margin: 5px;
+}
+nav ul {
+    list-style-type: none;
+    display: inline;
+}
+li{
+    display: inline;
+    
+}
+a {
+    color: var(--accent-color);
+}
+html, body {
+    overflow-x: hidden;
+}
+#initiative-list {
+    border: none;
+    border-collapse: collapse;
+    height: auto;
+}
+td, th {
+    padding-right: 10px;
+}
+#character-creation div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px;
+}
+#submit-button, #reset-button {
+    align-self: center;
+}
+#character-creation {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+#character-tracker {
+    border: 1px solid var(--primary-color);
+}
+#damage-setter {
+    padding: 10px;
+    border: none;
+    border-bottom: 1px solid var(--primary-color);
+}
+
+#char-hp, #dex-roll, #damage-input {
+    width: 50px;
+}
+button {
+    height: 25px;
+    font-family: "Aldritch", monospace;
+
+}
+select {
+    font-family: "Aldritch", monospace;
+}
+/* Rules Page CSS */
+#players-handbook-cover {
+    width: 200px;
+    float: right;
+    margin-left: 20px;
+}
+p {
+    max-width: 70ch;
+    /* flex: 0 0 50%; */
+    
+}
+#rules-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    /* flex-direction: column; */
+    /* gap: 50px; */
+}
+@media screen and (max-width: 445px) {
+    .health-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+    }
+    nav ul {
+        display: flex;
+        gap: 10px
+        ;
+    }
+    
+}

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Combat Tracker</title>
+    <meta name="author" content="Nathan McDowell">
+    <meta name="description" content="Combat Tracker for Dungeons and Dragons">
+    <link rel="stylesheet" href="styles.css">
+    <script src="main.js" defer></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <img src="images/dragon-head-logo.jpg" alt="dragon head logo">
+            <ul>
+                <li><a href="index.html">Combat Tracker</a></li>
+                <li><a href="rules.html">Combat Rules</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div id="character-creation">
+            <div>
+                <label for="char-name">Character Name</label>
+                <input type="text" name="char-name" id="char-name">
+            </div>
+            <div>
+                <label for="char-hp">HP</label>
+                <input type="text" name="hp" id="char-hp">
+            </div>
+            <div>
+                <label for="dex-roll">Roll</label>
+                <input type="text" name="dex-roll" id="dex-roll">
+            </div>
+            <div>
+                <label for="resistances">Resistances</label>
+                <select name="resistances" id="resistances">
+                    <option value="">[Choose]</option>
+                    <option value="B-P-S">Bl, Pi, Sl</option>
+                    <option value="Acid">Acid</option>
+                    <option value="Bludgeoning">Bludgeoning</option>
+                    <option value="Cold">Cold</option>
+                    <option value="Fire">Fire</option>
+                    <option value="Force">Force</option>
+                    <option value="Lightning">Lightning</option>
+                    <option value="Necrotic">Necrotic</option>
+                    <option value="Piercing">Piercing</option>
+                    <option value="Poison">Poison</option>
+                    <option value="Psychic">Psychic</option>
+                    <option value="Radiant">Radiant</option>
+                    <option value="Slashing">Slashing</option>
+                    <option value="Thunder">Thunder</option>
+                </select>
+            </div>
+            <button id="submit-button">Submit</button>
+            <button id="reset-button">Delete All</button>
+        </div>
+        <div id="character-tracker">
+            <div id="damage-setter">
+                <label for="damage-input">Damage:</label>
+                <input type="text" name="damage" id="damage-input">
+                <label for="damage-type">Damage Type:</label>
+                <select name="damage-type" id="damage-type">
+                    <option value="">[Choose]</option>
+                    <option value="B-P-S">Bl, Pi, Sl</option>
+                    <option value="Acid">Acid</option>
+                    <option value="Bludgeoning">Bludgeoning</option>
+                    <option value="Cold">Cold</option>
+                    <option value="Fire">Fire</option>
+                    <option value="Force">Force</option>
+                    <option value="Lightning">Lightning</option>
+                    <option value="Necrotic">Necrotic</option>
+                    <option value="Piercing">Piercing</option>
+                    <option value="Poison">Poison</option>
+                    <option value="Psychic">Psychic</option>
+                    <option value="Radiant">Radiant</option>
+                    <option value="Slashing">Slashing</option>
+                    <option value="Thunder">Thunder</option>
+                </select>
+            </div>
+            
+            <table id="initiative-list">
+
+            </table>
+        </div>
+    </main>
+</body>
+</html>
