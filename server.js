@@ -24,7 +24,6 @@ intents: [
 client.on("messageCreate", (message) => {
 if (message.author.bot) return;
 
-
 messages.push({
     user: message.author.username,
     content: message.content,
